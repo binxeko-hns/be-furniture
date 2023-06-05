@@ -4,7 +4,7 @@ import { formatToUSD } from "../../configs/constants";
 import { useNavigate } from "react-router-dom";
 
 type PropsType = {
-  data: ProductType[];
+  data?: ProductType[];
   viewStyle?: string;
 };
 

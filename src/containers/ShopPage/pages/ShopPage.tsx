@@ -27,14 +27,27 @@ const ShopPage = ({ title, data }: PropsType) => {
     handleOpenCloseFilter,
     handleOpenCloseCart,
     viewStyle,
+    materialsList,
+    rangePrice,
+    checkRooms,
     handleChooseViewStyle,
     handleRemoveItemCart,
     handleIncreaseItemCart,
     handleDecreaseItemCart,
-  } = useShopPage();
+    handleChangeRangePrice,
+    handleResetRangePrice,
+    handleChangeInputPriceMin,
+    handleChangeInputPriceMax,
+    handleChooseMaterialFilter,
+    handleCheckRoom,
+    filteredData,
+    isFiltering,
+  } = useShopPage(data);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [title]);
+
+  console.log(filteredData);
   return (
     <div style={{ paddingTop: "218px" }}>
       <Header
@@ -46,6 +59,15 @@ const ShopPage = ({ title, data }: PropsType) => {
         open={openFilter}
         onCLose={handleOpenCloseFilter}
         onOpen={handleOpenCloseFilter}
+        rangePrice={rangePrice}
+        checkRooms={checkRooms}
+        materialList={materialsList}
+        onChangeInputPriceMax={handleChangeInputPriceMax}
+        onChangeInputPriceMin={handleChangeInputPriceMin}
+        onChangeRangePrice={handleChangeRangePrice}
+        onResetRangePrice={handleResetRangePrice}
+        onCheckRoom={handleCheckRoom}
+        onChooseMaterial={handleChooseMaterialFilter}
       />
       <CartDrawer
         product={product.cart}
@@ -123,7 +145,10 @@ const ShopPage = ({ title, data }: PropsType) => {
                   </a>
                 </div>
                 <div className="content">
-                  <ProductList data={data} viewStyle={viewStyle} />
+                  <ProductList
+                    data={isFiltering ? filteredData : data}
+                    viewStyle={viewStyle}
+                  />
                 </div>
               </div>
             </div>

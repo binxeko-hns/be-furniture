@@ -3,16 +3,25 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import "./filterDrawer.scss";
+import { rooms } from "../../configs/constants";
 
 type PropsType = {
   open: boolean;
   onOpen?: Function;
   onCLose?: Function;
+  onChangeRangePrice?: Function;
+  rangePrice?: number[];
+  materialList?: string;
+  checkRooms?: boolean[];
+  onResetRangePrice?: Function;
+  onChangeInputPriceMin?: Function;
+  onChangeInputPriceMax?: Function;
+  onCheckRoom?: Function;
+  onChooseMaterial?: Function;
 };
 
 const initMin = 100;
 const initMax = 1900;
-const minDistance = 10;
 
 const PrettoSlider = styled(Slider)({
   color: "#433779",
@@ -53,29 +62,29 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
-const FiltersDrawer = ({ open = false, onOpen, onCLose }: PropsType) => {
-  const [rangePrice, setRangePrice] = useState<number[]>([initMin, initMax]);
-  const handleChange = (
-    event: Event,
-    newValue: number | number[],
-    activeThumb: number
-  ) => {
-    if (!Array.isArray(newValue)) {
-      return;
-    }
+const _materialsList = [
+  "Aluminum",
+  "Leadther",
+  "Metal",
+  "Textile",
+  "Velvet",
+  "Wood",
+];
 
-    if (activeThumb === 0) {
-      setRangePrice([
-        Math.min(newValue[0], rangePrice[1] - minDistance),
-        rangePrice[1],
-      ]);
-    } else {
-      setRangePrice([
-        rangePrice[0],
-        Math.max(newValue[1], rangePrice[0] + minDistance),
-      ]);
-    }
-  };
+const FiltersDrawer = ({
+  open = false,
+  onOpen,
+  onCLose,
+  onChangeRangePrice,
+  rangePrice,
+  materialList,
+  checkRooms,
+  onChangeInputPriceMax,
+  onChangeInputPriceMin,
+  onResetRangePrice,
+  onCheckRoom,
+  onChooseMaterial,
+}: PropsType) => {
   return (
     <SwipeableDrawer
       anchor="left"
@@ -89,24 +98,16 @@ const FiltersDrawer = ({ open = false, onOpen, onCLose }: PropsType) => {
             <div className="material-wrapper-inner">
               <label>Materials</label>
               <ul>
-                <li>
-                  <label>Alumium</label>
-                </li>
-                <li>
-                  <label>Leadther</label>
-                </li>
-                <li>
-                  <label>Metal</label>
-                </li>
-                <li>
-                  <label>Textile</label>
-                </li>
-                <li>
-                  <label>Velvet</label>
-                </li>
-                <li>
-                  <label>Wood</label>
-                </li>
+                {_materialsList.map((i) => (
+                  <li>
+                    <label
+                      className={materialList?.includes(i) ? "active" : ""}
+                      onClick={() => onChooseMaterial?.(i)}
+                    >
+                      {i}
+                    </label>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -121,23 +122,33 @@ const FiltersDrawer = ({ open = false, onOpen, onCLose }: PropsType) => {
                 max={initMax}
                 getAriaLabel={() => "Minimum distance"}
                 value={rangePrice}
-                onChange={handleChange}
+                onChange={(event, newValue, activeThumb) =>
+                  onChangeRangePrice?.(event, newValue, activeThumb)
+                }
                 disableSwap
               />
               <div className="input-price-wrapper">
                 <div className="input">
-                  <input type="number" value={rangePrice[0]} />
+                  <input
+                    type="number"
+                    value={rangePrice?.[0]}
+                    onChange={(e) => onChangeInputPriceMin?.(e)}
+                  />
                   <i>$</i>
                 </div>
                 <div className="input">
-                  <input type="number" value={rangePrice[1]} />
+                  <input
+                    type="number"
+                    value={rangePrice?.[1]}
+                    onChange={(e) => onChangeInputPriceMax?.(e)}
+                  />
                   <i>$</i>
                 </div>
               </div>
-              {rangePrice[0] !== initMin ||
-                (rangePrice[1] !== initMax && (
+              {rangePrice?.[0] !== initMin ||
+                (rangePrice?.[1] !== initMax && (
                   <div className="range-slider-action">
-                    <button>Reset</button>
+                    <button onClick={() => onResetRangePrice?.()}>Reset</button>
                   </div>
                 ))}
             </div>
@@ -149,36 +160,18 @@ const FiltersDrawer = ({ open = false, onOpen, onCLose }: PropsType) => {
             <div className="attributes-wrapper">
               <label>Room</label>
               <ul>
-                <li>
-                  <span>
-                    <input type="checkbox" />
-                    Bedroom
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    <input type="checkbox" />
-                    Dining room
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    <input type="checkbox" />
-                    Kitchen room
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    <input type="checkbox" />
-                    Living room
-                  </span>
-                </li>
-                <li>
-                  <span>
-                    <input type="checkbox" />
-                    Office
-                  </span>
-                </li>
+                {rooms.map((room, index) => (
+                  <li>
+                    <span>
+                      <input
+                        type="checkbox"
+                        checked={checkRooms?.[index]}
+                        onChange={() => onCheckRoom?.(index)}
+                      />
+                      {room}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

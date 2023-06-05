@@ -23,7 +23,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Textile, Wood",
+    room: "Bedroom"
   },
   {
     id: 125,
@@ -47,7 +49,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Textile, Wood",
+    room: "Bedroom"
   },
   {
     id: 126,
@@ -71,7 +75,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Wood",
+    room: "Bedroom"
   },
   {
     id: 127,
@@ -95,7 +101,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Velvet, Wood",
+    room: "Living room"
   },
   {
     id: 128,
@@ -119,7 +127,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Velvet, Wood",
+    room: "Living room"
   },
   {
     id: 129,
@@ -143,7 +153,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Aluminum, Metal",
+    room: "Office"
   },
   {
     id: 130,
@@ -167,7 +179,10 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Wood",
+    room: "Dinning room"
+
   },
   {
     id: 131,
@@ -191,7 +206,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Textile, Wood",
+    room: "Bedroom"
   },
   {
     id: 132,
@@ -215,7 +232,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Textile",
+    room: "Living room"
   },
   {
     id: 133,
@@ -239,7 +258,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Wood",
+    room: "Kitchen"
   },
   {
     id: 134,
@@ -263,7 +284,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Aluminum, Metal",
+    room: "Living room"
   },
   {
     id: 135,
@@ -287,7 +310,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Aluminum, Metal",
+    room: "Office"
   },
   {
     id: 136,
@@ -311,7 +336,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Wood",
+    room: "Living room"
   },
   {
     id: 137,
@@ -335,7 +362,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Velvet, Wood",
+    room: "Living room"
   },
   {
     id: 138,
@@ -359,7 +388,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Aluminum, Textile, Velvet, Wood",
+    room: "Office"
   },
   {
     id: 139,
@@ -383,7 +414,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Textile",
+    room: "Office"
   },
   {
     id: 140,
@@ -407,7 +440,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Velvet, Wood",
+    room: "Dining room"
   },
   {
     id: 141,
@@ -431,7 +466,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Wood",
+    room: "Kitchen"
   },
   {
     id: 142,
@@ -455,7 +492,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Wood",
+    room: "Wood"
   },
   {
     id: 143,
@@ -479,7 +518,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Metal, Textile, Wood",
+    room: "Dining room"
   },
   {
     id: 144,
@@ -503,7 +544,9 @@ export const mockShopData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Aluminum, Wood",
+    room: "Office"
   },
 ];
 
@@ -530,7 +573,9 @@ export const mockSofasData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Velvet, Wood",
+    room: "Living room"
   },
   {
     id: 137,
@@ -554,7 +599,9 @@ export const mockSofasData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Textile, Velvet, Wood",
+    room: "Living room"
   },
   {
     id: 138,
@@ -578,6 +625,8 @@ export const mockSofasData: ProductType[] = [
         name: "Wood",
         code: "#BA8C63"
       }
-    ]
+    ],
+    material: "Aluminum, Textile, Velvet, Wood",
+    room: "Office"
   },
 ];

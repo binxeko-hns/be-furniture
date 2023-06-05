@@ -12,6 +12,8 @@ export interface ProductType {
   price: number;
   isOnSale: boolean;
   colorList: ColorType[];
+  material?: string
+  room?: string
 }
 
 export interface CartItem {
@@ -24,6 +26,8 @@ export interface CartItem {
   quantity: number;
   rate: string;
   priceWithoutSale: number;
+  material?: string
+  room?: string
 }
 
 export interface InitValueType {
